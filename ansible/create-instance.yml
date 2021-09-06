@@ -1,0 +1,15 @@
+# create an instance
+
+- name:  Creates a new instance and attaches to a specific network
+  openstack.cloud.server:
+    state: present
+    auth:
+      auth_url: http://192.168.1.23
+      username: admin
+      password: admin
+      project_name: admin
+    name: “{{ name }}”
+    image: “{{ image }}”
+    timeout: 200
+    flavor: 4
+    network: “{{ network }}”
