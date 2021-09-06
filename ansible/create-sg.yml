@@ -1,0 +1,5 @@
+# Create a security group
+
+- openstack.cloud.security_group:
+    state: present
+    name:  “{{ name }}”
