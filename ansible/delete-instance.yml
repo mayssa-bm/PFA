@@ -1,0 +1,9 @@
+# delete an instance
+
+- name: remove an instance
+  hosts: localhost
+  tasks:
+    - name: remove an instance
+      openstack.cloud.server:
+        name:  “{{ name }}”
+        state: absent
