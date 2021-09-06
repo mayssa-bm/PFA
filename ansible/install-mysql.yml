@@ -1,0 +1,20 @@
+# Install MySQL
+
+- name: Install MySQL
+  user: ubuntu
+  hosts: all
+  become: True
+  become_user: root
+  vars:
+    MySQL_root_pass: ReplaceWithYourPassword
+  tasks:
+    - name: Set MySQL root password before installing
+      package: name="mysql-server" question="mysql-server/root_password" value=devstack  vtype="password"
+    - name: Confirm MySQL root password before installing
+      package: name="mysql-server" question="mysql-server/root_password_again" value=devstack vtype="password"
+    - name: test1
+      apt: package={{ item }} state=present force=yes update_cache=yes cache_valid_time=3600
+      with_items:
+        - mysql-server
+        - mysql-client
+        - python-mysqldb
