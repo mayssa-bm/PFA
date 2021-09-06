@@ -1,0 +1,7 @@
+# Create a security group rule for ping
+
+- openstack.cloud.security_group_rule:
+    cloud: mordred
+    security_group: foo
+    protocol: icmp
+    remote_ip_prefix: 0.0.0.0/0
